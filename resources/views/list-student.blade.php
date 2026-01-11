@@ -1,6 +1,6 @@
 <div>
     <h1>Student List</h1>
-    <table border=4>
+    <table border=1>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -14,7 +14,10 @@
             <td>{{ $student->name }}</td>
             <td>{{ $student->phone }}</td>
             <td>{{ $student->created_at }}</td>
-            <td> <a href="{{ 'delete/' . $student->id }}"> Delete </a> </td>
+            <td> 
+                <a href="{{ 'delete/' . $student->id }}">Delete</a> 
+                <a href="{{ 'edit/' . $student->id }}">Edit</a>
+            </td>
         </tr>
         @endforeach
     </table>

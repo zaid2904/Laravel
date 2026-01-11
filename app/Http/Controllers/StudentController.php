@@ -34,4 +34,9 @@ class StudentController extends Controller
             return redirect('list');
         }
     }
+    function edit($id)
+    {
+        $student = Student::find($id);
+        return view('edit', ['data' => $student]);
+    }
 }
