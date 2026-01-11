@@ -22,7 +22,7 @@ class StudentController extends Controller
     }
     function list()
     {
-        $studentData = Student::all(); // Fetch all records from the students table using the Student model
+        $studentData = Student::paginate(5); // Fetch all records from the students table using the Student model
 
         return view('list-student', ['students' => $studentData]);
     }
@@ -55,6 +55,6 @@ class StudentController extends Controller
     function search(Request $request)
     {
         $studentData = Student::where('name', 'like', '%' . $request->search . '%')->get();
-        return view('list-student', ['students' => $studentData]);
+        return view('list-student', ['students' => $studentData, 'search' => $request->search]);
     }
 }

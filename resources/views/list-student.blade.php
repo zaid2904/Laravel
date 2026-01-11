@@ -2,8 +2,8 @@
     <h1>Student List</h1>
     <form action="search" method="get">
         @csrf
-        <input type="text" placeholder="Search with name" name="search">
-        <button type="submit">Search</button>
+        <input type="text" placeholder="Search with name" name="search" value="{{ @$search }}" />
+        <button>Search</button>
     </form>
     <table border=1>
         <tr>
@@ -26,4 +26,12 @@
         </tr>
         @endforeach
     </table>
+    {{ $students->links() }}
 </div>
+
+<style>
+    .w-5.h-5 {
+        width: 20px;
+        height: 20px;
+    }
+</style>
