@@ -57,4 +57,13 @@ class StudentController extends Controller
         $studentData = Student::where('name', 'like', '%' . $request->search . '%')->get();
         return view('list-student', ['students' => $studentData, 'search' => $request->search]);
     }
+    function deleteMultiple(Request $request)
+    {
+        $result = Student::destroy($request->ids);
+        if ($result) {
+            return redirect('list');
+        } else {
+            return 'Failed to delete multiple records';
+        }
+    }
 }
