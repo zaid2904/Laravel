@@ -52,4 +52,9 @@ class StudentController extends Controller
             return 'Update Failed';
         }
     }
+    function search(Request $request)
+    {
+        $studentData = Student::where('name', 'like', '%' . $request->search . '%')->get();
+        return view('list-student', ['students' => $studentData]);
+    }
 }
