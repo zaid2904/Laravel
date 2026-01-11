@@ -39,4 +39,17 @@ class StudentController extends Controller
         $student = Student::find($id);
         return view('edit', ['data' => $student]);
     }
+    function editStudent(Request $request, $id)
+    {
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+
+        if ($student->save()) {
+            return redirect('list');
+        } else {
+            return 'Update Failed';
+        }
+    }
 }
