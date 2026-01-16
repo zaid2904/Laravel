@@ -22,7 +22,7 @@ class StudentController extends Controller
     }
     function list()
     {
-        $studentData = Student::paginate(5); // Fetch all records from the students table using the Student model
+        $studentData = Student::all(); // Fetch all records from the students table using the Student model
 
         return view('list-student', ['students' => $studentData]);
     }
@@ -65,5 +65,9 @@ class StudentController extends Controller
         } else {
             return 'Failed to delete multiple records';
         }
+    }
+    function manyToOne()
+    {
+        return Student::all();
     }
 }
